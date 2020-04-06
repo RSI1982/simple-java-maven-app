@@ -32,7 +32,7 @@ pipeline {
     stage('artifacts') {
       steps {
         echo 'Storing artifacts'
-        sh '''cd ${workspace}/target
+        sh '''cd ${workspace}/*/target
 '''
       }
     }
