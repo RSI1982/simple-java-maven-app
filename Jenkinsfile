@@ -15,6 +15,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Displaying test'
+        junit '${Workspace}/target/*.html'
       }
     }
 
