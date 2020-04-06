@@ -25,8 +25,11 @@ pipeline {
     }
 
     stage('codequality') {
+      agent any
       steps {
         echo 'displaying codequality'
+        withSonarQubeEnv(credentialsId: 'af0685f916b26a4be6df276b953ffd38172216f0', installationName: 'SQ')
+        sh '$mvnhome/mvn sonar:sonar -Dsonar.projectKey=mavenapp -Dsonar.projectName=mavenapp-pipeline -Dsonar.host.url=http://192.168.0.105:9000 -Dsonar.login=af0685f916b26a4be6df276b953ffd38172216f0'
       }
     }
 
@@ -43,5 +46,8 @@ zip -r mavenapp-pipeline.zip .'''
       }
     }
 
+  }
+  environment {
+    mvnhome = '/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/maven-home/bin'
   }
 }
