@@ -37,14 +37,10 @@ pipeline {
 
     stage('artifacts') {
       agent any
-      environment {
-        NEXUS_USER = 'admin'
-        NEXUS_PASS = 'India@123'
-      }
       steps {
         echo 'Storing artifacts'
-        sh '''cd /target
-zip -r mavenapp-pipeline.zip .'''
+        readFile 'target/*.jar'
+        sh 'zip -r mavenapp-pipeline.zip .'
       }
     }
 
