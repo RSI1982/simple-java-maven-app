@@ -13,6 +13,10 @@ pipeline {
     }
 
     stage('Test') {
+      agent any
+      environment {
+        mvnhome = '/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/maven-home/bin'
+      }
       steps {
         echo 'Displaying test'
         sh '$mvnhome/mvn clean test'
