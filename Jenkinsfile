@@ -38,7 +38,7 @@ pipeline {
       steps {
         echo 'Storing artifacts'
         ws(dir: '/var/jenkins_home/workspace')
-        sh '''cd ${WORKSPACE}/*/target
+        sh '''cd $WORKSPACE/*/target
 zip -r mavenapp-pipeline.zip .'''
       }
     }
