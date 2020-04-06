@@ -20,7 +20,6 @@ pipeline {
       steps {
         echo 'Displaying test'
         sh '$mvnhome/mvn clean test'
-        publishCoverage(tag: 'target/site/jacoco/*')
       }
     }
 
@@ -33,6 +32,9 @@ pipeline {
     stage('artifacts') {
       steps {
         echo 'Storing artifacts'
+        sh '''cd ${workspace}/target
+zip -r mavenapp-pipeline.zip .
+curl -v -u admin:India@123 --upload-file mavenapp-pipeline.zip http://192.168.0.7:8081/repository/mavenapp-pipeline/maven-central/mavenapp-pipeline/${BUILD_NUMBER}'''
       }
     }
 
