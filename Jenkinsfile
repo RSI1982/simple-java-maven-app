@@ -20,6 +20,7 @@ pipeline {
       steps {
         echo 'Displaying test'
         sh '$mvnhome/mvn clean test'
+        junit 'target/surefire-reports/*.xml'
       }
     }
 
