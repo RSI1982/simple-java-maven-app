@@ -2,9 +2,12 @@ pipeline {
   agent any
   stages {
     stage('Build') {
+      agent any
+      environment {
+        mvnhome = '/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/maven-home/bin'
+      }
       steps {
         echo 'Building'
-        sh 'build.sh'
       }
     }
 
