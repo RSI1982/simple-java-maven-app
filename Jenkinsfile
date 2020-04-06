@@ -30,9 +30,14 @@ pipeline {
     }
 
     stage('artifacts') {
+      agent any
+      environment {
+        NEXUS_USER = 'admin'
+        NEXUS_PASS = 'India@123'
+      }
       steps {
         echo 'Storing artifacts'
-        sh '''cd ${workspace}/*/target
+        sh '''curl -v -u admin:India@123 --upload-file mavenapp-pipeline.zip http://192.168.0.7:8081/repository/mavenapp-pipeline/maven-central/mavenapp-pipeline/${BUILD_NUMBER}
 '''
       }
     }
