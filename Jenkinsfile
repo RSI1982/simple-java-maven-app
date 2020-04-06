@@ -37,8 +37,9 @@ pipeline {
       }
       steps {
         echo 'Storing artifacts'
-        sh '''curl -v -u admin:India@123 --upload-file mavenapp-pipeline.zip http://192.168.0.7:8081/repository/mavenapp-pipeline/maven-central/mavenapp-pipeline/${BUILD_NUMBER}
-'''
+        ws(dir: '/var/jenkins_home/workspace')
+        sh '''cd ${WORKSPACE}/*/target
+zip -r mavenapp-pipeline.zip .'''
       }
     }
 
