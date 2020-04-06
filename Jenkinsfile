@@ -9,6 +9,7 @@ pipeline {
       steps {
         echo 'Building'
         sh '$mvnhome/mvn package'
+        sh 'cd {WORKSPACE}'
       }
     }
 
@@ -39,8 +40,8 @@ pipeline {
       agent any
       steps {
         echo 'Storing artifacts'
-        readFile 'target/*.jar'
-        sh 'zip -r mavenapp-pipeline.zip .'
+        sh '''cd ${WORKSPACE}
+.'''
       }
     }
 
