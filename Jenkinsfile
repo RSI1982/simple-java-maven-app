@@ -10,7 +10,6 @@ pipeline {
     stage('Test') {
       steps {
         sh '$mvnhome/mvn clean test'
-        junit '/var/jenkins_home/workspace/simple-java-maven-app_master/target/surefire-reports/*.xml'
       }
     }
 
