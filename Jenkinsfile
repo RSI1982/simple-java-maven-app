@@ -10,7 +10,7 @@ pipeline {
     stage('Test') {
       steps {
         sh '$mvnhome/mvn clean test'
-        junit 'target/site/jacoco/index.html'
+        junit 'target/surefire-reports/*.xmltml'
       }
     }
 
