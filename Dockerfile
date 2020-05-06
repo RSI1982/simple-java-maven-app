@@ -31,7 +31,7 @@ Step 10/13 : WORKDIR /opt/tomcat/webapps
  ---> Running in 83e328f92c1a
 Removing intermediate container 83e328f92c1a
  ---> 8e8d29c51fd8
-Step 11/13 : RUN curl -O https://github.com/AKSarav/SampleWebApp/raw/master/dist/SampleWebApp.war
+Step 11/13 : RUN curl -O http://192.168.0.12:8081/repository/mavenapp-pipeline/maven-central/mavenapp-pipeline/${BUILD_NUMBER}
  ---> Running in cdc45a9204a9
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
