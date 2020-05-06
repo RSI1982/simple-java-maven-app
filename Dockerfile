@@ -1,6 +1,6 @@
-$ docker build -t saravak/tomcat8 .
+#docker build -t saravak/tomcat8 .
 
-Sending build context to Docker daemon   38.4kB
+#Sending build context to Docker daemon   38.4kB
 Step 1/13 : FROM centos
  ---> 1e1148e4cc2c
 Step 2/13 : MAINTAINER aksarav@middlewareinventory.com
