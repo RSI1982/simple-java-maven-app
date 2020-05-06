@@ -5,9 +5,9 @@ FROM centos
 MAINTAINER aksarav@middlewareinventory.com
 RUN mkdir /opt/tomcat/
 WORKDIR /opt/tomcat
-RUN curl -O https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.40/bin/apache-tomcat-8.5.40.tar.gz
-RUN tar xvfz apache*.tar.gz
-RUN mv apache-tomcat-8.5.40/* /opt/tomcat/.
+RUN curl -o tomcat9.tar.gz http://www-us.apache.org/dist/tomcat/tomcat-9/v9.0.30/bin/apache-tomcat-9.0.30.tar.gz
+RUN tar -xvf tomcat9.tar.gz
+RUN mv apache-tomcat-9.0.30/* /opt/tomcat/.
 RUN yum -y install java
 RUN java -version
 WORKDIR /opt/tomcat/webapps
